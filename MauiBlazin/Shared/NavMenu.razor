@@ -1,0 +1,30 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">MauiBlazin</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+<div>
+<MudDrawerContainer class="mud-height-full" @onclick="ToggleNavMenu">
+    <MudDrawer @bind-Open="@open">
+        <MudNavMenu class="nav-item px-3">
+            <MudNavLink class="nav-link" href="" Match="NavLinkMatch.All">Home</MudNavLink>
+            <MudNavLink class="nav-link" href="counter">Counter</MudNavLink>
+            <MudNavLink class="nav-link" href="fetchdata">Fetch data</MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
+</MudDrawerContainer>
+</div>
+
+@code {
+    private bool open = true;
+
+    private string NavMenuCssClass => open ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        open = !open;
+    }
+}
